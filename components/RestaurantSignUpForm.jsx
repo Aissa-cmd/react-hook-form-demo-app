@@ -12,6 +12,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import CircularProgress from '@mui/material/CircularProgress';
 import { useQuery } from 'react-query'
 import { useCallback } from "react";
+import countryCodeData from '../resources/countriesCode'
 
 const schema = yup.object({
   restaurantName: yup.string().required('This field is required'),
@@ -30,9 +31,6 @@ function RestaurantSignUpForm() {
   }, [])
 
   //const { data: countryCodeData, status } = useQuery('countryCodeItems', fetchCountryCode)
-  const countryCodeData = {
-    'Mo': {dialling_code: '+212', country_name: 'Morocco'}
-  }
 
   const { control, handleSubmit, formState:{ errors }, isLoading } = useForm({
     resolver: yupResolver(schema),
@@ -78,7 +76,7 @@ function RestaurantSignUpForm() {
                   {...field}
                 >
                   { !isLoading && countryCodeData ?
-                    Object.values(countryCodeData).map((item, idx) => <MenuItem key={idx} value={item.dialling_code}>{`${item.dialling_code} ${item.country_name}`}</MenuItem>) :
+                    countryCodeData.map((item, idx) => <MenuItem key={idx} value={item.dial_code}>{`${item.dial_code} ${item.name}`}</MenuItem>) :
                     <MenuItem value={20} disabled><CircularProgress  style={{marginRight: 7}} /><span>Loading...</span></MenuItem>
                   }
                 </Select>
