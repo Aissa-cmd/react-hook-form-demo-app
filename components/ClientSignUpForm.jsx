@@ -25,7 +25,7 @@ function ClientSignUpForm() {
     <form onSubmit={handleSubmit(onSubmit)}>
       <Grid container rowSpacing={3}>
         <Grid item xs={12}>
-          <FormControl fullWidth error={errors.restaunamerantName?.message}>
+          <FormControl fullWidth error={errors.name?.message}>
             <Controller 
               name="name"
               control={control}
