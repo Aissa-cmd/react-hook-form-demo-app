@@ -6,6 +6,7 @@ import TabsUnstyled from '@mui/base/TabsUnstyled';
 import TabsListUnstyled from '@mui/base/TabsListUnstyled';
 import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
 import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
+import Alert from '@mui/material/Alert';
 import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
 
 const blue = {
@@ -83,6 +84,14 @@ export default function Home() {
         <meta name="description" content="A Nextjs demo application, demonstrating how to use react-hook-form and yup with material-ui to validate forms" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+        <Alert 
+          severity="info"
+          style={{
+            marginBottom: 30
+          }}
+        >
+          The code for this website is available on <a href="https://github.com/Aissa-cmd/react-hook-form-demo-app">GitHub</a>
+        </Alert>
       <div className="form">
         <div className="form-header">Sing up</div>
         <TabsUnstyled defaultValue={0}>
